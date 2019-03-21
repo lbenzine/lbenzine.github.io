@@ -40,7 +40,7 @@ body{
 	position:relative;
 	overflow:hidden;
 	font-family: Lora, serif;
-	background:#FF0033 !important; /*#F0F0F0*/
+	background:#000000 !important; /*#F0F0F0*/
 }
 *{
 	font-family: inherit;
@@ -648,7 +648,7 @@ body.section-switching.up .animation-block{
 	background:#E0E0E0;
 }
 .skill > .bar > .percent{
-	background:#303F9F;
+	background:#FF0000;/*#303F9F;*/
 	width:10%;
 	height:6px;
 }
@@ -846,8 +846,8 @@ body.section-switching.up .animation-block{
 }
 .testimonial > .icon{
 	font-size:64px;
-	color:#303F9F;
-	opacity:.6;
+	color:#FF0000;/*#303F9F;*/
+	opacity:.9;
 }
 .testimonial > p{
 	font-size:18px;
@@ -886,7 +886,7 @@ body.section-switching.up .animation-block{
 	height:6px;
 	width:36px;
 	margin-right:7px;
-	background:#303F9F;
+	background:#FF0000;/*#303F9F;*/
 	opacity:.4;
 }
 .testimonials-slider .owl-controls .owl-dot.active > span{
