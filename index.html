@@ -41,7 +41,9 @@
                         </p>
                          
                         <p>
-                            I am software developer with two years of experience in C# .NET MVC Framework, I am also drawn to the exciting world of Data Science. I could spend my free time exploring this field, driven by my passion myself. I am seeking opportunities to expand my knowledge and learn new technologies, as I believe it is essential to grow in this career path and improve my skill set.
+                            <div class="work-period" data-start="2020-06-01" data-end="2022-07-31"></div>
+                            <div class="work-period" data-start="2023-07-03" data-end="present"></div>
+                            I am software developer with <span id="working-period-summary"></span> of experience in C# .NET MVC Framework, I am also drawn to the exciting world of Data Science. I could spend my free time exploring this field, driven by my passion myself. I am seeking opportunities to expand my knowledge and learn new technologies, as I believe it is essential to grow in this career path and improve my skill set.
                             </br></br>
                             Furthermore, my preference is to research and work on projects involving patients, elderly, and disabled persons, as I am passionate about using technology to empower and used to enhance improve their daily lives. It brings me immense joy to witness the positive impact that technology can have on people, and that's why I am always motivated to learn new technologies that can bring a positive change in the world.
                         </p>
@@ -63,6 +65,36 @@
         <script src="/assets/bootstrap-5.3.0-alpha1-dist/js/bootstrap.bundle.min.js"></script>
 
 		<!-- <script>window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')</script>  -->
+        <script>
+            $(document).ready(function () {
+                let totalMonths = 0;
+
+                $('.work-period').each(function () {
+                    const startRaw = $(this).data('start');
+                    const endRaw = $(this).data('end');
+
+                    const start = new Date(startRaw);
+                    const end = endRaw === 'present' ? new Date() : new Date(endRaw);
+
+                    // คำนวณจำนวนเดือนทั้งหมด
+                    let months = (end.getFullYear() - start.getFullYear()) * 12 + 
+                                (end.getMonth() - start.getMonth());
+
+                    // ถ้าวันสิ้นสุด >= วันเริ่มต้นในเดือนนั้น ให้บวกเพิ่ม 1 เดือน
+                    if (end.getDate() >= start.getDate()) {
+                        months += 1;
+                    }
+
+                    totalMonths += months;
+                });
+
+                const years = Math.floor(totalMonths / 12);
+                const months = totalMonths % 12;
+
+                // $('#working-period-summary').text(`${years} years ${months} months`);
+                $('#working-period-summary').text(`${years} years`);
+            });
+        </script>
 	</body>
 
 </html>
