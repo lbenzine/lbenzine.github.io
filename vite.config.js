@@ -10,6 +10,9 @@ export default defineConfig({
     vue(),
     vueDevTools(),
   ],
+  define: {
+    __BUILD_DATE__: JSON.stringify(new Date().toISOString()),
+  },
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))

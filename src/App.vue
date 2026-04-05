@@ -79,6 +79,7 @@
           </div>
         </div>
       </section>
+      <div class="last-updated">Last updated: {{ buildDate }}</div>
     </div>
   </div>
 </template>
@@ -108,6 +109,14 @@ const totalYears = computed(() => {
 })
 
 const summary = computed(() => resume.summary.replace('{years}', totalYears.value))
+
+const buildDate = new Date(__BUILD_DATE__).toLocaleString('th-TH', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+  hour: '2-digit',
+  minute: '2-digit',
+})
 </script>
 
 <style>
@@ -305,6 +314,13 @@ a.entry-title:hover {
   padding: 3px 10px;
   font-size: 12px;
   border-radius: 2px;
+}
+
+.last-updated {
+  text-align: center;
+  font-size: 11px;
+  color: #bbb;
+  margin-top: 24px;
 }
 
 /* Mobile styles */
