@@ -307,6 +307,33 @@ a.entry-title:hover {
   border-radius: 2px;
 }
 
+/* Mobile styles */
+@media (max-width: 600px) {
+  .resume {
+    margin: 0;
+    padding: 24px 20px;
+    box-shadow: none;
+  }
+
+  .resume-header h1 {
+    font-size: 1.4rem;
+  }
+
+  .entry-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+  }
+
+  .skill-row {
+    grid-template-columns: 1fr;
+  }
+
+  .skill-category {
+    margin-bottom: 2px;
+  }
+}
+
 /* Print styles */
 @media print {
   .no-print {
