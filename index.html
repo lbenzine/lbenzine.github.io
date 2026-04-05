@@ -1,100 +1,29 @@
 <!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width,initial-scale=1">
-		<title>Benzene Jirayu | Index</title>
-        
-        <link rel="icon" href="/assets/icons/benzene.png">
-
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-        <link href="/assets/bootstrap-5.3.0-alpha1-dist/css/bootstrap.min.css" rel="stylesheet">
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet"/>
-
-        <script src="/scripts/ga4-tracking.js"></script>
-        <script src="/scripts/loadlayout.js"></script>
-
-        <style>
-            .transition-fly:hover {
-                animation: fadeOutTopRight 1s;
-                animation-duration: 2s;
-                animation-delay: 100ms;
-            }
-        </style>
-	</head>
-	<body>
-        <header>
-            <div id="header"></div>
-        </header>
-        <main>
-            <section class="py-5 container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-4">
-                        <img src="./assets/images/me.jpg" class="rounded-circle m-auto d-block" style="width: 300px; height: 300px; object-fit: cover; object-position: 50% 50%;">
-                        <figcaption class="figure-caption text-center my-3">That me!, You can call me Benzene :)</figcaption>
-                    </div>
-                    <div class="col-lg-7 mt-5 mt-lg-0">
-                        <h1>Jirayu Tancharoen <div class="d-inline-block transition-fly">🚀</div></h1>
-                        <p>
-                            <a class="h6" href="mailto:595021002000@mail.rmutk.ac.th">595021002000@mail.rmutk.ac.th</a> |
-                            <a class="h6" href="https://www.linkedin.com/in/jirayu-t-8bb581252"><img src="./assets/icons/linkedin.png" width=15> Linkedin</a> 
-                        </p>
-                         
-                        <p>
-                            <div class="work-period" data-start="2020-06-01" data-end="2022-07-31"></div>
-                            <div class="work-period" data-start="2023-07-03" data-end="present"></div>
-                            I am software developer with <span id="working-period-summary"></span> of experience in C# .NET MVC Framework, I am also drawn to the exciting world of Data Science. I could spend my free time exploring this field, driven by my passion myself. I am seeking opportunities to expand my knowledge and learn new technologies, as I believe it is essential to grow in this career path and improve my skill set.
-                            </br></br>
-                            Furthermore, my preference is to research and work on projects involving patients, elderly, and disabled persons, as I am passionate about using technology to empower and used to enhance improve their daily lives. It brings me immense joy to witness the positive impact that technology can have on people, and that's why I am always motivated to learn new technologies that can bring a positive change in the world.
-                        </p>
-                    
-                        <p>
-                            <small><b>Last Updated.</b> <span class="text-muted">17/04/2023</span></small>
-                        </p>
-                    </div>
-                </div>
-            </section>
-        </main>
-
-        <footer>
-            <div class="container pt-3 my-5 text-muted border-top">
-                <div id="footer"></div>
-            </div>
-        </footer>
-		
-        <script src="/assets/bootstrap-5.3.0-alpha1-dist/js/bootstrap.bundle.min.js"></script>
-
-		<!-- <script>window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')</script>  -->
-        <script>
-            $(document).ready(function () {
-                let totalMonths = 0;
-
-                $('.work-period').each(function () {
-                    const startRaw = $(this).data('start');
-                    const endRaw = $(this).data('end');
-
-                    const start = new Date(startRaw);
-                    const end = endRaw === 'present' ? new Date() : new Date(endRaw);
-
-                    // คำนวณจำนวนเดือนทั้งหมด
-                    let months = (end.getFullYear() - start.getFullYear()) * 12 + 
-                                (end.getMonth() - start.getMonth());
-
-                    // ถ้าวันสิ้นสุด >= วันเริ่มต้นในเดือนนั้น ให้บวกเพิ่ม 1 เดือน
-                    if (end.getDate() >= start.getDate()) {
-                        months += 1;
-                    }
-
-                    totalMonths += months;
-                });
-
-                const years = Math.floor(totalMonths / 12);
-                const months = totalMonths % 12;
-
-                // $('#working-period-summary').text(`${years} years ${months} months`);
-                $('#working-period-summary').text(`${years} years`);
-            });
-        </script>
-	</body>
-
+<html lang="">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/benzene.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jirayu Tancharoen | Resume</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2M5BYZBY34"></script>
+    <script>
+      window.dataLayer = window.dataLayer || []
+      function gtag() {
+        dataLayer.push(arguments)
+      }
+      gtag('js', new Date())
+      gtag('config', 'G-2M5BYZBY34')
+    </script>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
 </html>
