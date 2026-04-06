@@ -32,7 +32,7 @@
         <h2>Work Experience</h2>
         <div v-for="job in resume.experience" :key="job.company" class="entry">
           <div class="entry-header">
-            <span class="entry-title">{{ job.position }}, {{ job.company }}</span>
+            <span class="entry-title">{{ job.position }} | {{ job.company }}</span>
             <span class="entry-date">{{ job.start }} – {{ job.end }}</span>
           </div>
           <div class="entry-sub">{{ job.location }}</div>
@@ -72,7 +72,9 @@
             <div class="entry-title-group">
               <img v-if="cert.badge" :src="cert.badge" :alt="cert.name" class="cert-badge" />
               <div v-else class="cert-badge-placeholder"></div>
-              <a v-if="cert.url" :href="cert.url" target="_blank" class="entry-title">{{ cert.name }}</a>
+              <a v-if="cert.url" :href="cert.url" target="_blank" class="entry-title">{{
+                cert.name
+              }}</a>
               <span v-else class="entry-title">{{ cert.name }}</span>
             </div>
             <span class="entry-date">{{ cert.date }}</span>
@@ -99,7 +101,8 @@ const totalYears = computed(() => {
     if (!job.startISO) continue
     const start = new Date(job.startISO)
     const end = job.endISO === 'present' ? new Date() : new Date(job.endISO)
-    let months = (end.getFullYear() - start.getFullYear()) * 12 + (end.getMonth() - start.getMonth())
+    let months =
+      (end.getFullYear() - start.getFullYear()) * 12 + (end.getMonth() - start.getMonth())
     if (end.getDate() >= start.getDate()) months += 1
     totalMonths += months
   }
@@ -163,7 +166,7 @@ body {
   margin: 32px auto;
   background: #fff;
   padding: 48px 56px;
-  box-shadow: 0 2px 16px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.1);
 }
 
 .resume-header {
@@ -365,6 +368,25 @@ a.entry-title:hover {
     padding: 24px 32px;
     box-shadow: none;
     max-width: 100%;
+  }
+
+  /* Reset mobile overrides when printing */
+  .resume-header h1 {
+    font-size: 2rem;
+  }
+
+  .entry-header {
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .skill-row {
+    grid-template-columns: 180px 1fr;
+  }
+
+  .skill-category {
+    margin-bottom: 0;
   }
 }
 </style>
